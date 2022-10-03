@@ -32,10 +32,11 @@ Route::post('/login', [LoginController::class, 'store']);
 // Routes for log out a user
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 
-//Routing of user profiles
+//Routing of user profiles (Index)
 Route::get('/{user:username}', [PostController::class, 'index'])->name('posts.index');
-//Create a posts the Instagram
+//Create a posts the Instagram (Create)
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+//Save a post in the database (Store);
 Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
 //Upload Image
 Route::post('/images', [ImageController::class, 'store'])->name('images.store');

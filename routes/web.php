@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -45,3 +46,8 @@ Route::post('/images', [ImageController::class, 'store'])->name('images.store');
 Route::get('/{user:username}/posts/{post}', [PostController::class, 'show'])->name('posts.show');
 //Save a comment on a specific publications
 Route::post('/{user:username}/posts/{post}', [CommentController::class, 'store'])->name('comments.store');
+//destroy a specific publications
+Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
+//like a specific publications
+Route::post('/posts/{post}/likes', [LikeController::class, 'store'])->name('posts.likes.store');
+Route::delete('/posts/{post}/likes', [LikeController::class, 'destroy'])->name('posts.likes.destroy');

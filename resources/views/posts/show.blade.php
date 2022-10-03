@@ -22,6 +22,21 @@
                     {{ $post->description }}
                 </p>
             </div>
+            <!-------Form to delete a publication------------------------->
+            @auth()
+                @if ($post->user_id ===auth()->user()->id)
+                    <form method="POST" action="{{ route('posts.destroy', $post) }}">
+                        @method('DELETE') <!--Method spoofing-->
+                        @csrf
+                        <input
+                            type="submit"
+                            value="Delete Publication"
+                            class="bg-red-500 hover:bg-red-600 p-2 rounded text-white font-bold mt-4 cursor-pointer"
+                        />
+                    </form>
+                @endif
+            @endauth
+            <!-------END Form to delete a publication------------------------->
 
         </div>
         <div class="md:w-1/2 p-5">

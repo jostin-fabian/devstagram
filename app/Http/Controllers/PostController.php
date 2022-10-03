@@ -10,7 +10,8 @@ class PostController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        //restrict permissions for view controllers
+        $this->middleware('auth')->except(['show', 'index']);
     }
 
     //

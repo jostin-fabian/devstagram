@@ -21,4 +21,9 @@ class Post extends Model
         return $this->belongsTo(User::class)->select(['name', 'username']);//A Post belongs to a User
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class); //A post will have multiple comments
+    }
+
 }

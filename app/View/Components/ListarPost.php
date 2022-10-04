@@ -6,14 +6,18 @@ use Illuminate\View\Component;
 
 class ListarPost extends Component
 {
+    public $posts;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($posts)
     {
-        //
+        // Execute the constructor method
+        $this->posts = $posts;
+
     }
 
     /**

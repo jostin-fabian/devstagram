@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FollowerController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PostController;
@@ -21,10 +22,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('main');
-});
+// home page route for your application. Home Page
+Route::get('/', HomeController::class)->name('home');
 /***
  * -------------------------------------------------------------------------------------------------------------------
  * Authenticate with in the application

@@ -36,12 +36,12 @@
                 </div>
 
                 <p class="text-gray-800 text-sm mb-3 font-bold mt-5">
-                    {{ $user->count() }}
-                    <span class="font-normal"> @choice('Seguidor|Seguidores', $user->count() ) </span>
+                    {{ $user->followers->count() }}
+                    <span class="font-normal"> @choice('Follower|Followers', $user->count() ) </span>
                 </p>
 
                 <p class="text-gray-800 text-sm mb-3 font-bold">
-                    {{ $user->count() }}
+                    {{$user->followings->count() }}
                     <span class="font-normal"> Following </span>
                 </p>
 
@@ -49,25 +49,23 @@
                     {{ $user->posts->count() }}
                     <span class="font-normal"> Posts</span>
                 </p>
-
-
                 @auth
                     @if($user->id !== auth()->user()->id )
-                        @if( !$user->siguiendo( auth()->user() ) )
+                        @if( !$user->byFollowing( auth()->user() ) )
                             <form
-                                action=""
+                                action="{{ route('users.follow',$user)}}"
                                 method="POST"
                             >
                                 @csrf
                                 <input
                                     type="submit"
                                     class="bg-blue-600 text-white uppercase rounded-lg px-3 py-1 text-xs font-bold cursor-pointer"
-                                    value="Seguir"
+                                    value="Follow"
                                 />
                             </form>
                         @else
                             <form
-                                action=""
+                                action="{{ route('users.unfollow', $user) }}"
                                 method="POST"
                             >
                                 @csrf
@@ -75,7 +73,7 @@
                                 <input
                                     type="submit"
                                     class="bg-red-600 text-white uppercase rounded-lg px-3 py-1 text-xs font-bold cursor-pointer"
-                                    value="Dejar de Seguir"
+                                    value="Stop Tracking"
                                 />
                             </form>
                         @endif

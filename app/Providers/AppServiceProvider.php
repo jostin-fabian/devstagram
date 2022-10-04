@@ -23,6 +23,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //We force the deployment to be of type htttps
+        if ($this->app->environment('production')) {
+            URL::forceScheme('https');
+        }
     }
 }

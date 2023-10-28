@@ -1,53 +1,87 @@
 # Devstagram
 
-**Devstagram** es una plataforma de redes sociales diseñada específicamente para desarrolladores y entusiastas de la tecnología. Con Devstagram, puedes conectar con otros profesionales de la programación, compartir tus proyectos, obtener retroalimentación valiosa y estar al tanto de las últimas tendencias en el mundo de la tecnología.
+Devstagram es una app similar a Instagram pero específica para desarrolladores. Con Devstagram puedes:
 
-## Características principales
+- Autenticar usuarios con Brazze
+- Crear publicaciones con código o imágenes
+- Mostrar las publicaciones de los desarrolladores que sigues
+- Dar me gusta o comentar las publicaciones que te gustan
+- Seguir o dejar de seguir a otros desarrolladores
 
-- **Perfiles de desarrollador**: Crea un perfil único que destaque tus habilidades, experiencia y proyectos pasados. Agrega una foto de perfil y una breve biografía para que otros desarrolladores te conozcan mejor.
+Devstagram está desarrollada con el framework Laravel, que permite crear aplicaciones web de forma rápida y elegante.
 
-- **Publicación de proyectos**: Comparte tus proyectos personales y colaborativos. Publica detalles sobre tu proyecto, comparte código fuente, capturas de pantalla y enlaces a repositorios de GitHub.
-
-- **Interacción social**: Da "me gusta" a las publicaciones de otros desarrolladores, comenta y comparte tus proyectos favoritos. Fomenta la interacción y la retroalimentación constructiva.
-
-- **Búsqueda de desarrolladores y proyectos**: Encuentra otros desarrolladores por habilidades, tecnologías o proyectos. Explora proyectos interesantes y únete a conversaciones relevantes.
-  
 ## Requisitos
 
-Para utilizar Devstagram en tu entorno de desarrollo, necesitas tener instalados los siguientes componentes:
+Para usar Devstagram necesitas tener instalado lo siguiente:
 
-- **PHP >= 7.x**: El lenguaje de programación en el que está construido Laravel, el marco en el que se basa Devstagram.
-
-- **Composer**: La herramienta de gestión de dependencias de PHP para instalar las bibliotecas requeridas.
-
-- **MySQL**: Un sistema de gestión de bases de datos relacional. Asegúrate de tener una base de datos configurada.
+- PHP >= 7.3
+- Composer
+- MySQL
+- Node.js
+- NPM
 
 ## Instalación
 
-1. Clona el repositorio:
+Para instalar Devstagram sigue estos pasos:
 
-   ```bash
-   git clone https://github.com/jostin-fabian/devstagram.git
-   ```
-2. Instala las dependencias:
-   ```bash
-   cd devstagram
-   composer install
-   ```
+1. Clona el repositorio de GitHub:
 
-3. Copia el archivo de configuración:
-    ```bash
-   cp .env.example .env
-   ```
-4. Configura tu entorno en el archivo .env. Asegúrate de establecer los valores adecuados para la base de datos 
-  
-5. Genera la clave de la aplicación:
-    ```bash
-        cp .env.example .env
-   ```
-6. Ejecuta las migraciones y las semillas (si las tienes):
-    ```bash
-    php artisan migrate --seed
-   ```
-7. Visita http://127.0.0.1:8000
+```bash
+git clone https://github.com/jostin-fabian/devstagram.git
+```
+2.Entra en la carpeta del proyecto:
+
+```bash
+cd devstagram
+```
+3. Instala las dependencias de Composer:
+
+```bash
+composer install
+```
+4. Instala las dependencias de NPM:
+
+```bash
+npm install
+```
+5. Crea un archivo .env a partir del archivo .env.example:
+
+```bash
+cp .env.example .env
+```
+6. Genera una nueva clave para la aplicación:
+
+```bash
+php artisan key:generate
+```
+7. Crea una base de datos para la aplicación y configura las credenciales de acceso en el archivo .env:
+
+```bash
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=devstagram
+DB_USERNAME=root
+DB_PASSWORD=
+```
+8. Ejecuta las migraciones y los seeders para crear y poblar las tablas de la base de datos:
+
+```bash
+php artisan migrate --seed
+```
+9. Ejecuta el servidor de desarrollo:
+
+```bash
+php artisan serve
+```
+10. Visita http://localhost:8000 en tu navegador para ver la aplicación.
+
+# Uso
+Para usar Devstagram necesitas crear una cuenta o autenticarte con Brazze. Una vez dentro de la aplicación puedes crear publicaciones, seguir a otros desarrolladores, dar me gusta o comentar las publicaciones de otros desarrolladores.
+- Para crear una publicación haz clic en el botón "Create" y rellena el formulario.
+- Para seguir a otros desarrolladores haz clic en el botón "Follow" que aparece en la página de perfil de cada desarrollador.
+- Para dar me gusta a una publicación haz clic en el botón "Me gusta" que aparece en cada publicación.
+- Para comentar una publicación haz clic en el botón "Comment" que aparece en cada publicación y rellena el formulario.
+- Para dejar de seguir a un desarrollador haz clic en el botón "Dejar de seguir" que aparece en la página de perfil de cada desarrollador.
+- Para cerrar sesión haz clic en el botón "CLOSE SESSION" que aparece en la página de perfil de cada desarrollador.
 
